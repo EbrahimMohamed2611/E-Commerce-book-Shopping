@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+            <h:form>
+                <h:outputLabel value="This is the Home page"/>
+                <br/>
+                <h:outputLabel value="Welcome "/>
+                <h:outputText value="#{LoginBean.userName}"/>
+            </h:form>
+        </h:body>
+    </html>
+</f:view>

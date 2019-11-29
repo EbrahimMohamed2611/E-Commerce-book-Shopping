@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    >
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+              <ui:composition template="/templates/MyTemplate.jsf">
+         <ui:define name="content">
+         
+                <h:form>
+                        <h:panelGrid columns="2" 
+                width="100%" cellpadding="2" cellspacing="7" style=" margin-top:30px;"
+                                 frame="border">
+                                 
+                            <f:facet name="header">
+                            <h:panelGroup>
+                                <h:outputLabel id="outputLabel1" value="Confirm your Data"/>
+                                  <hr/>
+                              </h:panelGroup>
+                            </f:facet>
+                            <h:outputLabel id="outputLabel2" value="User Name" for="outputText1"/>
+                            <h:outputText id="outputText1" value="#{RegisterBean.userName}"/>
+                            <h:outputLabel id="outputLabel3" value="Full Name" for="outputText2"/>
+                            <h:outputText id="outputText2" value="#{RegisterBean.fullName}"/>
+                            <h:outputLabel id="outputLabel4" value="Country" for="outputText3"/>
+                            <h:outputText id="outputText3" value="#{RegisterBean.country}"/>
+                            <h:outputLabel id="outputLabel5" value="City" for="outputText4"/>
+                            <h:outputText id="outputText4" value="#{RegisterBean.city}"/>
+                            <h:outputLabel id="outputLabel6" value="Address" for="outputText5"/>
+                            <h:outputText id="outputText5" value="#{RegisterBean.address}"/>
+                            <h:outputLabel id="outputLabel7" value="Dob" for="outputText6"/>
+                            <h:outputText id="outputText6" value="#{RegisterBean.dob}">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
+                            <h:outputLabel id="outputLabel8" value="Job" for="outputText7"/>
+                            <h:outputText id="outputText7" value="#{RegisterBean.job}"/>
+                            <h:outputLabel id="outputLabel9" value="Income" for="outputText8"/>
+                            <h:outputText id="outputText8" value="#{RegisterBean.income}"/>
+                            <h:outputLabel id="outputLabel10" value="Email" for="outputText9"/>
+                            <h:outputText id="outputText9" value="#{RegisterBean.email}"/>
+                            <h:outputLabel id="outputLabel11" value="Gender" for="outputText10"/>
+                            <h:outputText id="outputText10" value="#{RegisterBean.gender}"/>
+                            <h:outputLabel id="outputLabel12" value="Egyptian" for="outputText11"/>
+                            <h:outputText id="outputText11" value="#{RegisterBean.egyptianValue}"/>
+                            <h:outputLabel id="outputLabel13" value="Mobile" for="outputText12"/>
+                            <h:outputText id="outputText12" value="#{RegisterBean.mobile}"/>
+                            <f:facet name="footer">
+                                <h:panelGroup layout="block" style="text-align:center">
+                                <hr/>
+                                    <h:commandButton value="Confirm" action="#{RegisterBean.registerUser}" binding="8"/>
+                                </h:panelGroup>
+                            </f:facet>
+                        </h:panelGrid>
+                    </h:form>
+         
+         </ui:define>
+         
+         </ui:composition>
+       
+        </h:body>
+    </html>
+</f:view>

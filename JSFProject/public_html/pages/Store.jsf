@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" 
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+        
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+          <ui:composition template="/templates/MyTemplate.jsf">
+         <ui:define name="content">
+         
+        
+         <h1>Welcome to Senior Steps Store page</h1>
+     <h:outputStylesheet  library="css" name="dataTable.css" />
+     <h:form>
+    
+ <h:dataTable var="p" width="100%"
+                        value="#{StoreBean.productsList}" border="1"
+                         cellpadding="20" cellspacing="20"
+                         styleClass="employeeTable"
+						headerClass="employeeTableHeader"
+						rowClasses="employeeTableOddRow,employeeTableEvenRow"
+                       >
+                           
+                      <h:column>
+                 <f:facet name="header"><h:outputText value="Id"/></f:facet>
+                      <h:outputText value="#{p.productId}"></h:outputText>
+                      </h:column>
+                   
+                      <h:column>
+                      <f:facet name="header"><h:outputText value="Name"/></f:facet>
+                      <h:outputText value="#{p.productName}"></h:outputText>
+                      </h:column>
+                      
+                           <h:column>
+                      <f:facet name="header"><h:outputText value="Description"/></f:facet>
+                      <h:outputText value="#{p.productDescription}"></h:outputText>
+                      </h:column>
+                      
+                      
+                     <h:column>
+                      <f:facet name="header"><h:outputText value="Price"/></f:facet>
+                      <h:outputText value="#{p.productPrice}"></h:outputText>
+                      </h:column>
+                      
+                        <h:column>
+                      <f:facet name="header"><h:outputText value="Image"/></f:facet>
+                                <h:graphicImage library="images/books/"
+            name="#{p.productImage}" alt="book Image" height="160" width="121"/>
+      </h:column>
+                      
+                       <h:column>
+                      <f:facet name="header"><h:outputText value="Add to Cart"/></f:facet>
+       <h:commandButton value="Add to Cart" action="#{StoreBean.addProductToCart(p)}"/>
+      </h:column>
+                      
+                      
+                   </h:dataTable>   
+         </h:form>
+         
+         </ui:define>
+         
+         </ui:composition>
+        </h:body>
+    </html>
+</f:view>

@@ -1,0 +1,23 @@
+@charset "windows-1256";
+
+.employeeTable{   
+   border-collapse:collapse;
+   border:1px solid #7A7A7A;
+}
+
+.employeeTableHeader{
+   text-align:center;
+    font-size: 15px;
+   border-bottom:1px solid #71C671;  
+   padding:2px;
+}
+
+.employeeTableOddRow{
+   text-align:center;
+   background:none repeat scroll 0 0 #666362;	
+}
+
+.employeeTableEvenRow{
+   text-align:center;
+   background:none repeat scroll 0 0 #463E3F;
+}

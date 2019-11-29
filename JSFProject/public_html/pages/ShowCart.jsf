@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" 
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+               <ui:composition template="/templates/MyTemplate.jsf">
+         <ui:define name="content">
+         
+        
+         <h1>Welcome to Senior Steps Store page</h1>
+     <h:outputStylesheet  library="css" name="dataTable.css" />
+     <h:form>
+          <h:dataTable var="p" width="100%"
+                        value="#{StoreBean.productsCartList}" border="1"
+                         cellpadding="20" cellspacing="20"
+                         styleClass="employeeTable"
+         headerClass="employeeTableHeader"
+         rowClasses="employeeTableOddRow,employeeTableEvenRow"
+                       >
+                   
+                      <h:column>
+                      <f:facet name="header"><h:outputText value="Name"/></f:facet>
+                      <h:outputText value="#{p.product.productName}"></h:outputText>
+                      </h:column>
+                      
+                      
+                     <h:column>
+                      <f:facet name="header"><h:outputText value="Price"/></f:facet>
+                      <h:outputText value="#{p.product.productPrice}"></h:outputText>
+                      </h:column>
+                    
+                     <h:column>
+                      <f:facet name="header"><h:outputText value="Quantity"/></f:facet>
+                      <h:outputText value="#{p.quantity}"></h:outputText>
+                      </h:column>
+                    
+                    
+                     <h:column>
+                      <f:facet name="header"><h:outputText value="Sub Total"/></f:facet>
+                      <h:outputText value="#{p.product.productPrice * p.quantity}"></h:outputText>
+                      </h:column>
+                                          
+                       <h:column>
+                      <f:facet name="header"><h:outputText value="Remove"/></f:facet>
+                    <h:commandButton value="Remove" action="#{StoreBean.removeProduct(p)}"
+                              onclick="return confirm('Are you sure ?')"  
+                    />
+                        </h:column>
+                      
+                      
+                   </h:dataTable>   
+                   
+                   
+                 <h2>  <h:commandLink value="Continue Shopping" action="Store"/> </h2>
+                   
+                <hr/>
+               
+               
+                <h2> total Sum = #{StoreBean.sumCart()} </h2>
+         
+         </h:form>
+         
+         </ui:define>
+         
+         </ui:composition>
+      
+          
+          
+          
+        </h:body>
+    </html>
+</f:view>

@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" 
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    >
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+            <ui:composition template="/templates/MyTemplate.jsf">
+         <ui:define name="content">
+         
+                 <h:form>
+                        <h:panelGrid  columns="4" width="100%" 
+                        cellpadding="7" 
+                        cellspacing="2" style=" margin-top:30px;"
+                                     frame="border">
+                                     
+                            <f:facet name="header">
+                                <h:outputLabel id="outputLabel1" value="Registeration Page"/>
+                            </f:facet>
+                       
+                       
+                       
+                     <h:outputLabel id="outputLabel2" value="User Name" for="inputText1"/>
+                          
+                            <h:inputText id="inputText1" 
+                            value="#{RegisterBean.userName}" required="true"
+                              requiredMessage="required!" 
+                              validatorMessage="User Name should be at least 5 letters" >
+                                    <f:validateLength minimum="5"/>
+                                </h:inputText>
+                            <h:message for="inputText1" style="color:Red;"/>
+                            <h:panelGroup/>
+                       
+                       
+                            
+                            <h:outputLabel id="outputLabel3" value="Password" for="inputSecret1"/>
+                           <h:panelGroup>
+                            <h:inputSecret id="inputSecret1"
+                            value="#{RegisterBean.password}" required="true"
+                               requiredMessage="required!"/>
+                            <h:message for="inputSecret1" style="color: Red;"/>
+                            </h:panelGroup>
+                            
+                                
+                                
+                   <h:outputLabel id="outputLabelConfirm" value="Confirm Password" 
+                            for="inputSecret2"/>
+                           <h:panelGroup>
+                            <h:inputSecret id="inputSecret2"
+                             required="true"
+                               requiredMessage="required!"/>
+                            <h:message for="inputSecret" style="color: Red;"/>
+                            </h:panelGroup>
+                            
+                            
+                            
+                            
+                            <h:outputLabel id="outputLabel4" value="Full Name" for="inputText2"/>
+                            <h:inputText id="inputText2" value="#{RegisterBean.fullName}" 
+                            required="true"
+                               requiredMessage="required!"/>
+                            <h:message for="inputText2" style="color: Red;"/>
+                                <h:panelGroup/>                            
+                            
+                            
+                            <h:outputLabel id="outputLabel5" value="Country"/>
+                            <h:selectOneMenu value="#{RegisterBean.country}"> 
+                                <f:selectItems value="#{RegisterBean.countriesList}"/>
+                            </h:selectOneMenu>
+                            
+                            
+                            
+                            <h:outputLabel id="outputLabel6" value="City" for="inputText4"/>
+                            <h:inputText id="inputText4" value="#{RegisterBean.city}" required="false"/>
+                            
+                            
+                            
+                            <h:outputLabel id="outputLabel7" value="Address" for="inputTextarea1"/>
+                            <h:inputTextarea id="inputTextarea1" 
+                                    value="#{RegisterBean.address}" required="false"
+                                    rows="5" cols="30"
+                                    />
+                            
+                            
+                            
+                            <h:outputLabel id="outputLabel8" value="Date Birth" for="inputText5"/>
+                            <h:panelGroup>
+                            <h:inputText id="inputText5" value="#{RegisterBean.dob}" required="false"
+                            converterMessage="Date Should be in dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:inputText>
+                            <h:message for="inputText5" style="color: Red;"/>
+                            </h:panelGroup>
+                            
+                            
+                            
+                            <h:outputLabel id="outputLabel9" value="Job"/>
+
+                            <h:selectOneListbox value="#{RegisterBean.job}"
+                                 style="height:50px; width:220px" >
+                                <f:selectItems value="#{RegisterBean.jobsList}"/>
+                            </h:selectOneListbox>
+                            
+                            
+                            <h:outputLabel id="outputLabel10" value="Income" for="inputText7"/>
+                            <h:panelGroup>
+                            <h:inputText id="inputText7" value="#{RegisterBean.income}" required="false"
+                                       converterMessage="Input should be Numbers only" 
+                                        validatorMessage="Income should be least 500" >
+                                <f:convertNumber/>
+                                    <f:validateDoubleRange minimum="500"/>
+                                </h:inputText>
+                            <h:message for="inputText7" style="color: Red;"/>
+                            </h:panelGroup>
+                            
+                            
+                            
+                            <h:outputLabel id="outputLabel11" value="Email" for="inputText8"/>
+                         <h:panelGroup>   
+                            <h:inputText id="inputText8" value="#{RegisterBean.email}" required="false"
+                             validatorMessage="Email should be in Correct format" >
+                                <f:validateRegex pattern="([a-zA-Z0-9 _.]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,3})"/>   
+                            </h:inputText>
+                            <h:message for="inputText8" style="color: Red;"/>
+                            </h:panelGroup>
+                            
+                            
+                            <h:outputLabel id="outputLabel12" value="Gender"/>
+                            <h:selectOneRadio value="#{RegisterBean.gender}">
+                                <f:selectItem itemLabel="Male" itemValue="Male"/>
+                                <f:selectItem itemLabel="Female" itemValue="Female"/>
+                            </h:selectOneRadio>
+                            
+                            
+                            <h:outputLabel id="outputLabel13" value="Egyptian"/>
+                            <h:selectBooleanCheckbox value="#{RegisterBean.egyptian}"/>
+                            
+                            
+                            
+                            <h:outputLabel id="outputLabel14" value="Mobile" for="inputText11"/>
+                            <h:inputText id="inputText11" value="#{RegisterBean.mobile}" required="false"/>
+                            
+                            <f:facet name="footer">
+                                <h:panelGroup layout="block" style="text-align:center">
+                                <hr/>
+                                    <h:commandButton value="Save" action="ConfirmRegister"/>
+                                </h:panelGroup>
+                            </f:facet>
+                        
+                        
+                        </h:panelGrid>
+                    </h:form>
+         
+         </ui:define>
+         
+         </ui:composition>
+        </h:body>
+    </html>
+</f:view>

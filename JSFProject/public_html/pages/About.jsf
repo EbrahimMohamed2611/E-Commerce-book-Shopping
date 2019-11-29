@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    >
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+       <ui:composition template="/templates/MyTemplate.jsf">
+         <ui:define name="content">
+         
+                    <h1>Welcome to Senior Steps About us page</h1>
+         
+         </ui:define>
+         
+         </ui:composition>
+       
+        </h:body>
+    </html>
+</f:view>

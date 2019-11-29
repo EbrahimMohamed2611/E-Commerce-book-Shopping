@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='windows-1256'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <h:head></h:head>
+        <h:body>
+      
+            <h:form>
+          
+               <h1>Welcome to My First JSF Application</h1>
+               
+                <h:panelGrid columns="2" width="20%" border="1"
+                        bgcolor="Gray">
+                    <h:outputLabel value="User Name"/>
+                    <h:inputText value="#{LoginBean.userName}"/>
+                    <h:outputLabel value="password"/>
+                    <h:inputSecret value="#{LoginBean.password}"/>
+                <h:commandButton value="Login" action="#{LoginBean.checkLogin}"/>
+                </h:panelGrid>
+                <br/>
+            
+            </h:form>
+        </h:body>
+    </html>
+</f:view>
